@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PixelFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://MenuInicio.gd" type="Script" id=2]
+[ext_resource path="res://EstrellasParticulas.tscn" type="PackedScene" id=3]
+
+[node name="MenuInicio" type="Node"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 95.0
+margin_top = 69.0
+margin_right = 225.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 1 )
+text = "Presiona espacio para comenzar!
+Presiona escape para salir!
+
+Espacio para disparar, arriba y
+abajo para moverte! (arrow keys)"
+
+[node name="EstrellasParticulas" parent="." instance=ExtResource( 3 )]

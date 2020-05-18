@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nave.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World.gd" type="Script" id=2]
+[ext_resource path="res://SpawnEnemigo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PixelFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://EstrellasParticulas.tscn" type="PackedScene" id=5]
+
+[node name="World" type="Node" groups=[
+"World",
+]]
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="EstrellasParticulas" parent="." instance=ExtResource( 5 )]
+
+[node name="Nave" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 96 )
+z_index = 1
+
+[node name="SpawnEnemigo" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320, 0 )
+
+[node name="PuntosLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 4 )
+text = "Puntos: 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="muerte_jugador" from="Nave" to="." method="_on_Nave_muerte_jugador"]
